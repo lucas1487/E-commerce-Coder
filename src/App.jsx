@@ -13,7 +13,6 @@ function App() {
       
       <div className="flex justify-center flex-wrap">
       <ItemListContainer/>
-
         
 
 

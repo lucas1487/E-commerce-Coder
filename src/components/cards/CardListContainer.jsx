@@ -27,7 +27,7 @@ function ItemListContainer() {
     },[])
 
     const obtenerDatos= async ()=>{
-        const datos= await fetch('/productos.json');
+        const datos= await fetch('../../public/productos.json');
         const prodDatos= await datos.json();
         console.log(prodDatos);
         setListaP(prodDatos)

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import CartWidget from './CartWidget'
 import icon from '../img/icon.png'
 import { Transition } from "@headlessui/react";
+import {Link} from 'react-router-dom'
 function NavBar(){
   const [isOpen, setIsOpen] = useState(false);
     return(
@@ -22,27 +23,26 @@ function NavBar(){
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="#"
-                    className=" hover:bg-gray-700 text-blue-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
+                  <Link to="/E-commerce-Coder/" className=" hover:bg-gray-700 text-blue-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  
+                    
+                  
                     Inicio
-                  </a>
+                  
+                  </Link>
+                  <Link to="/E-commerce-Coder/Categoria/celular" className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  
+                    
+                  
+                    Celulares
+                  
+                  </Link>
+                  <Link to="/E-commerce-Coder/Categoria/auriculares" className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
 
-                  <a
-                    href="#"
-                    className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Productos
-                  </a>
-
-                  <a
-                    href="#"
-                    className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Nosotros
-                  </a>
-
+                  
+                    Auriculares
+                  
+                  </Link>
                   <a
                     href="#"
                     className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"

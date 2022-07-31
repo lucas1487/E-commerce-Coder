@@ -2,7 +2,7 @@ import React from 'react'
 import { useState} from 'react'
 import {Link} from 'react-router-dom'
 import { BiChevronLeft } from "react-icons/bi";
-function CardDetail({id,precio, marca, img, stock, descripcion}) {
+function CardDetail({id,precio, marca, img, stock, descripcion,categoria}) {
     const [cantidad, setCantidad]=useState(1);
     function incremento(){
       if (cantidad<stock){
@@ -28,7 +28,7 @@ function CardDetail({id,precio, marca, img, stock, descripcion}) {
     }
   return (
     <div className=' flex justify-center'>
-         <Link to={'/E-commerce-Coder/'} className="pt-2 pl-2 my-2 flex" > 
+         <Link to={`/E-commerce-Coder/categoria/${categoria}`} className="pt-2 pl-2 my-2 flex" > 
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
                 <p className="pl-2">Volver</p>
                

@@ -8,8 +8,7 @@ import {getCatalogoById} from '../../productos.js'
 
 function CardDetailContainer() {
   const [cardLista,setListaP] =useState([])
- const {CatalogoId}=useParams()
-console.log(CatalogoId)
+ const {detalleId}=useParams()
     useEffect(()=>{
 
       
@@ -18,10 +17,10 @@ console.log(CatalogoId)
     
       
      
-    },[CatalogoId])
+    },[detalleId])
 
     const obtenerDatos=  ()=>{
-      getCatalogoById(CatalogoId).then(respuesta=>{
+      getCatalogoById(detalleId).then(respuesta=>{
         setListaP(respuesta)
       }
         )}

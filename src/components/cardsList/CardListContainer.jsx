@@ -3,6 +3,7 @@
 import { useState,useEffect } from 'react'
 import CardList from "./CardList"
 import Cargando from './Cargando'
+import {getCatalogo} from '../../productos.js'
 
 
 
@@ -19,22 +20,19 @@ function ItemListContainer() {
         setTimeout(()=>{
           setLoading(false)
           obtenerDatos()
-
   
     },2000);
       
      
     },[])
 
-    const obtenerDatos= async ()=>{
-        const datos= await fetch('../../public/productos.json');
-        const prodDatos= await datos.json();
-        console.log(prodDatos);
-        setListaP(prodDatos)
-    }
+    const obtenerDatos=  ()=>{
+      getCatalogo().then(respuesta=>{
+        setListaP(respuesta)})}
+        console.log(cardLista)
 
     return(
-      <div className='h-max className="flex justify-center justify-items-center"'>
+      <div className='h-max flex justify-center justify-items-center'>
         {loading? <Cargando/>: <CardList lista={cardLista}/>
 }
       </div>

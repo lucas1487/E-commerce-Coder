@@ -4,6 +4,7 @@ import Cargando from '../cardsList/Cargando'
 import { useState,useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import {getCatalogoById} from '../../productos.js'
+import ItemCount from '../ItemCount'
 
 
 function CardDetailContainer() {
@@ -24,7 +25,6 @@ function CardDetailContainer() {
         setListaP(respuesta)
       }
         )}
-        console.log(cardLista)
 
   return (
     

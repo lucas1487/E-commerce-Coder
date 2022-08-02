@@ -5,7 +5,7 @@ const catalogo=
         id:'1',
         marca: "Moto E32 64GB ",
         precio: "$ 30.000,00.-",
-        stock: 10,
+        stock: 0,
         img:"../src/img/cel1.webp",
         categoria: 'celular',
 

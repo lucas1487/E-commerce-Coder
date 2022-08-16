@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './Card'
-
+import {memo} from 'react'
 function CardList({lista}) {
 
 
@@ -17,4 +17,4 @@ function CardList({lista}) {
   )
 }
 
-export default CardList
+export default memo(CardList) 

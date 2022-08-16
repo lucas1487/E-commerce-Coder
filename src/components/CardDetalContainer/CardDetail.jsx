@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
-import { createContext, useState, useContext, useEffect} from "react";
+import { useState, useContext} from "react";
 import CartWidget from "../CartWidget";
 import CartContexto from "../CartContext";
+import { useNotificacion } from '../Notification'
 
 function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
-  const { agregaProducto, eliminProducto } = useContext(CartContexto);
+  const { agregaProducto} = useContext(CartContexto);
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
+  const setNotificacion = useNotificacion()
 
   const controlAgregaProducto = (cantidad) => {
+    setNotificacion('succes',`Se Agregó ${cantidad} ${marca} al carrito`,1)
     agregaProducto({ id, marca, precio, cantidad });
     setCantidadAgregada(cantidad);
     console.log(cantidad);
@@ -118,10 +121,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
             <ItemCount agrega={controlAgregaProducto} stock={stock} />
           ) : (
             <>
-              {" "}
-              <p className="mt-2 text-cyan-100 bg-blue-500 text-xl px-2.5 py-1.5 text-center">
-                Usted Agrego {cantidadAgregada} al carrito
-              </p>{" "}
+              
               <Link
                 to="/Cart"
                 className="mt-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -131,14 +131,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
             </>
           )}
 
-          {cantidadAgregada === 0 ? null : (
-            <button
-              onClick={() => eliminProducto(id)}
-              className="mt-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Eliminar Compra
-            </button>
-          )}
+          
         </div>
       </div>
     </div>

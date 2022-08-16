@@ -4,9 +4,11 @@ import CardListContainer from "./components/cardsList/CardListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CardDetailContainer from "./components/CardDetalContainer/CardDetailContainer";
 import { CarProvider } from "./components/CartContext";
+import {NotificacionProvider} from './components/Notification'
 
 function App() {
   return (
+    <NotificacionProvider>
     <CarProvider>
       <BrowserRouter>
         <NavBar />
@@ -23,6 +25,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CarProvider>
+    </NotificacionProvider>
   );
 }
 

@@ -1,35 +1,41 @@
 import React from 'react'
 import CardDetail from './CardDetail'
 import Cargando from '../cardsList/Cargando'
+
 import { useState,useEffect } from 'react'
 import {useParams} from 'react-router-dom'
-import {getCatalogoById} from '../../productos.js'
-import ItemCount from '../ItemCount'
-
+import {getDoc, doc} from 'firebase/firestore'
+import {db} from '../../firebase/firebase'
 
 function CardDetailContainer() {
+  const [loading, setLoading]=useState(true)
+
   const [cardLista,setListaP] =useState([])
  const {detalleId}=useParams()
     useEffect(()=>{
-
+      setTimeout(()=>{
+        setLoading(false)
+        
+    
+    },500)
       
-          obtenerDatos()
+      const DocRef = doc(db, 'catalogo', detalleId)
+      getDoc(DocRef).then(response =>{
+          const cardListaResponse = {id: response.id, ...response.data()}
+          setListaP(cardListaResponse)
+      }).catch(error =>{console.log(error)})
   
     
       
      
     },[detalleId])
 
-    const obtenerDatos=  ()=>{
-      getCatalogoById(detalleId).then(respuesta=>{
-        setListaP(respuesta)
-      }
-        )}
+    
 
   return (
     
-        <div>
-           <CardDetail {...cardLista}/>
+        <div className='h-max flex justify-center justify-items-center'>
+         {loading? <Cargando/>  :<CardDetail {...cardLista}/>}
         </div>
     
   )

@@ -110,7 +110,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-white m-5 items-center">
               {" "}
-              {precio}
+              ${precio},00
             </span>
           </div>
         </div>

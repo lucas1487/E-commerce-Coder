@@ -3,9 +3,9 @@
 import { useState,useEffect } from 'react'
 import CardList from "./CardList"
 import Cargando from './Cargando'
-import {getCatalogo, getCategoriaByCategoria} from '../../productos.js'
 import {useParams} from 'react-router-dom'
-
+import {getDocs, collection, query, where} from 'firebase/firestore'
+import {db} from '../../firebase/firebase'
 
 
 
@@ -18,24 +18,18 @@ function ItemListContainer() {
 
 
   useEffect(() =>{
+    const coleccionRef = CategoriaId ? (query(collection(db, 'catalogo'), where('categoria','==',CategoriaId))) : (collection(db, 'catalogo'))
     setTimeout(()=>{
     setLoading(false)
     
 
 },2000);
-if(!CategoriaId) {
-  getCatalogo().then(respuesta=>{
-    setListaP(respuesta)
-    console.log(cardLista)
-
+getDocs(coleccionRef).then(response =>{
+  const catalogoFirestore = response.docs.map(doc =>{
+      return{id:doc.id, ...doc.data()}
   })
-}else{
-getCategoriaByCategoria(CategoriaId).then(respuesta=>{
-    setListaP(respuesta)
-    console.log(cardLista)
-
-  })
-}
+  setListaP(catalogoFirestore)
+})
    
 
 },[CategoriaId])

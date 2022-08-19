@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
-import { useState, useContext} from "react";
+import { useState, useContext,useEffect} from "react";
 import CartWidget from "../CartWidget";
 import CartContexto from "../CartContext";
 import { useNotificacion } from '../Notification'
 
 function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
-  const { agregaProducto} = useContext(CartContexto);
+  const {agregaProducto,buscaProducto} = useContext(CartContexto)
+  const productoBuscado = buscaProducto(id)
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
   const setNotificacion = useNotificacion()
 
@@ -22,7 +23,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
   return (
     <div className=" flex justify-center  text-center">
       <Link
-        to={`/E-commerce-Coder/categoria/${categoria}`}
+        to={`/E-commerce-Coder/`}
         className="pt-2 pl-2 my-2 flex"
       >
         <svg
@@ -44,11 +45,11 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
 
       <div className=" flex flex-row max-w-xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 border-2 outline-8 m-3 ">
         <div className="flex flex-col w-3/4">
-          <a className="flex justify-center" href="">
+          <a className="flex justify-center">
             <img className="p-8 rounded-t-lg " src={img} alt="product image" />
           </a>
           <div className="px-5 pb-5">
-            <a href="">
+            <a >
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 {marca}
               </h5>
@@ -123,7 +124,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
             <>
               
               <Link
-                to="/Cart"
+                to="/E-commerce-Coder/Cart/"
                 className="mt-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Terminar Compra

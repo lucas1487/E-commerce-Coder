@@ -1,7 +1,7 @@
 
 
 import { useState,useEffect } from 'react'
-import CardList from "./CardList"
+import ItemList from "./ItemList"
 import Cargando from './Cargando'
 import {useParams} from 'react-router-dom'
 import {getDocs, collection, query, where} from 'firebase/firestore'
@@ -36,11 +36,13 @@ getDocs(coleccionRef).then(response =>{
 
 
 
+
+
       
 
     return(
       <div className='h-max flex justify-center justify-items-center'>
-        {loading? <Cargando/>: <CardList lista={cardLista}/>
+        {loading? <Cargando/>: <ItemList lista={cardLista}/>
 }
       </div>
   )

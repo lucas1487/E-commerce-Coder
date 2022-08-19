@@ -28,10 +28,26 @@ export const CarProvider = ({ children }) => {
 
     return cantidadTotalCart;
   };
+  const buscaProducto = (productoParaBuscar) =>{
+    const productoEncontrado = cart.find(response => response.id === productoParaBuscar)
+    let avisoProductoEncontrado = ''
+    if(productoEncontrado){avisoProductoEncontrado = 'Producto ya está Agregado'}else{avisoProductoEncontrado='Agregar Producto'}
+    return avisoProductoEncontrado
+}
+const obtenerTotal = () =>{
+  let totalCart = 0
+  cart.forEach(response =>{totalCart += response.cantidad * response.precio})
+  console.log(totalCart)
+  return totalCart
+}
+
+const limpiarCarro = () =>{
+  setCart([])
+}
 
   return (
     <CartContexto.Provider
-      value={{ agregaProducto, eliminProducto, obtenerCartCantidad }}
+      value={{cart ,agregaProducto, eliminProducto, obtenerCartCantidad, buscaProducto,obtenerTotal,limpiarCarro}}
     >
       {children}
     </CartContexto.Provider>

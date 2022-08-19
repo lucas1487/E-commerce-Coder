@@ -6,7 +6,7 @@ function Cargando() {
 
      
   return (
-    <div  >
+    <div className="flex justify-center" >
     
 <img  src={cargando} alt="" />
 

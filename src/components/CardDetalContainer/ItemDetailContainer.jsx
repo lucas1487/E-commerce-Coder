@@ -1,7 +1,7 @@
 import React from 'react'
-import CardDetail from './CardDetail'
+import CardDetail from './ItemDetail'
 import Cargando from '../cardsList/Cargando'
-
+import {getDetailCatalogo} from '../../firebase/firestone'
 import { useState,useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import {getDoc, doc} from 'firebase/firestore'
@@ -19,11 +19,7 @@ function CardDetailContainer() {
     
     },500)
       
-      const DocRef = doc(db, 'catalogo', detalleId)
-      getDoc(DocRef).then(response =>{
-          const cardListaResponse = {id: response.id, ...response.data()}
-          setListaP(cardListaResponse)
-      }).catch(error =>{console.log(error)})
+    getDetailCatalogo(detalleId).then(response =>{setListaP(response)}).catch(error =>{console.error(error)}).finally(()=>{})
   
     
       

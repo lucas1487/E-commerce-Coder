@@ -1,11 +1,11 @@
 import React from 'react'
-import Card from './Card'
+import Card from './Item'
 import {memo} from 'react'
 function CardList({lista}) {
 
 
   return (
-    <div className=' grid  md:grid-cols-3'>
+    <div className=' grid  md:grid-cols-3 '>
         {
                
             

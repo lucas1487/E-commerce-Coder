@@ -14,13 +14,13 @@ function Card( {id,precios, marcas, imagen}) {
 
 
     
-    <div >
-        <div className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 border-2 outline-8 m-3">
-    <a className='flex justify-center' href="">
-        <img className="p-8 rounded-t-lg " src={imagen} alt="product image" />
+    <div  >
+        <div className=" max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 border-2 outline-8 m-3">
+    <a className='flex justify-center' >
+        <img className=" p-8 rounded-t-lg " src={imagen} alt="product image" />
     </a>
     <div className="px-5 pb-5">
-        <a href="">
+        <a >
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{marcas}</h5>
         </a>
         <div className="flex items-center mt-2.5 mb-5">
@@ -35,7 +35,7 @@ function Card( {id,precios, marcas, imagen}) {
         <div className="flex justify-between items-center">
             <span className="text-xl font-bold text-gray-900 dark:text-white"> ${precios},00</span>
             <Link to={`/E-commerce-Coder/detalle/${id}`}
-             href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-3">Ver detalles</Link>
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-3">Ver detalles</Link>
         </div>
     </div>
 </div></div>

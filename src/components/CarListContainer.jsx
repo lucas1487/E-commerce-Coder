@@ -1,12 +1,11 @@
-import CartContexto from './CartContext'
+import {CartContexto} from './CartContext'
 import ItemCart from './ItemCart'
 import {Link} from 'react-router-dom'
 import { useContext} from 'react'
 
 function CarListContainer() {
-    const {cart, obtenerTotal, limpiarCarro,obtenerCartCantidad} = useContext(CartContexto)
+    const {cart, obtenerTotal, limpiarCarro,cantidadTotalCart} = useContext(CartContexto)
     const total = obtenerTotal()
-    const canTotal = obtenerCartCantidad()
     const handleElimItem = () =>{
         limpiarCarro()}
      
@@ -27,7 +26,7 @@ function CarListContainer() {
 
           <div className="flex flex-col m-auto items-center justify-around bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono">
             <div className="text-2xl font-bold text-cyan-700">Resumen de Compra</div>
-            {canTotal!=1?<div className="">Total Productos: {canTotal}</div>:<div className="">Total Producto: {canTotal}</div>}
+            {cantidadTotalCart!=1?<div className="">Total Productos: {cantidadTotalCart}</div>:<div className="">Total Producto: {cantidadTotalCart}</div>}
             <div className="">Total:  ${total},00.-</div>
             <Link to='/E-commerce-Coder/Cart/Generarcompra/' className="m-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Procesar Compra</Link>
 

@@ -1,11 +1,9 @@
 import React from 'react'
 import { useState, useContext } from 'react'
-import CartContexto from "./CartContext";
+import {CartContexto} from "./CartContext";
 
 function ItemCount({stock, agrega,id}) {
     const [cantidad, setCantidad]=useState(0);
-    const {buscaProducto} = useContext(CartContexto)
-  const productoBuscado = buscaProducto(id)
     function incremento(){
       if (cantidad<stock){
          setCantidad(cantidad+1);
@@ -20,7 +18,6 @@ function ItemCount({stock, agrega,id}) {
     
   return (
     <div>
-                <div className="detalle-prod-agrega">{productoBuscado}</div>
 
       { stock===0? <p className="mt-2 text-cyan-100 bg-blue-500 text-xl px-2.5 py-1.5 text-center">SIN STOCK</p>:
               <div className="flex justify-center items-center m-3">

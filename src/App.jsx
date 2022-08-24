@@ -3,7 +3,7 @@ import "./App.css";
 import CardListContainer from "./components/cardsList/ItemListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CardDetailContainer from "./components/CardDetalContainer/ItemDetailContainer";
-import { CarProvider } from "./components/CartContext";
+import  CartContext  from "./components/CartContext";
 import {NotificacionProvider} from './components/Notification'
 import CarListContainer from './components/CarListContainer'
 import OrdenCompra from './components/OrdenCompra'
@@ -12,7 +12,7 @@ import CartFormCli from './components/CartFormCli'
 function App() {
   return (
     <NotificacionProvider>
-    <CarProvider>
+    <CartContext>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -30,7 +30,7 @@ function App() {
           <Route path='/E-commerce-Coder/Cart/OrdenCompra/:ordenPage' element={<OrdenCompra />}/>
         </Routes>
       </BrowserRouter>
-    </CarProvider>
+    </CartContext>
     </NotificacionProvider>
   );
 }

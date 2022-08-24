@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
 import { useState, useContext,useEffect} from "react";
 import CartWidget from "../CartWidget";
-import CartContexto from "../CartContext";
+import {CartContexto} from "../CartContext";
 import { useNotificacion } from '../Notification'
 
 function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
-  const {agregaProducto,buscaProducto} = useContext(CartContexto)
-  const productoBuscado = buscaProducto(id)
+  const {agregaProducto} = useContext(CartContexto)
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
   const setNotificacion = useNotificacion()
 
@@ -118,6 +117,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
 
         <div className="flex flex-col justify-center items-center m-4 w-3/4">
           <li> {descripcion}</li>
+          <p>Cantidad en stock {stock}</p>
           {cantidadAgregada === 0 || cantidadAgregada.cantidad === 0 ? (
             <ItemCount agrega={controlAgregaProducto} stock={stock} />
           ) : (

@@ -1,39 +1,67 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
-const CartContexto = createContext();
+export const CartContexto = createContext();
 
-export const CarProvider = ({ children }) => {
+ const CartContext = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [cantidadTotalCart,setcantidadTotalCart]=useState(0)
   console.log(cart);
+ 
 
-  const agregaProducto = (productoParaAgregar) => {
-    if (!cart.some((response) => response.id === productoParaAgregar.id)) {
-      setCart([...cart, productoParaAgregar]);
+
+  useEffect(() => {
+    if (localStorage.getItem("cart") === null||undefined) {
+      setCart([]);
+      setcantidadTotalCart(0)
+    } else {
+      setCart(JSON.parse(localStorage.getItem("cart")));
+      setcantidadTotalCart(obtenerCartCantidad(JSON.parse(localStorage.getItem('cart'))))
+
     }
-  };
+  }, [cart.length]);
+ 
+
+  const agregaProducto = (item, ) => {
+    if (isInCart(item.id)) {
+      cart.find((e) => e.id === item.id).cantidad+=item.cantidad
+      
+      localStorage.setItem('cart', JSON.stringify(setCart(cart)))
+      setcantidadTotalCart(obtenerCartCantidad(cart))
+    } else {
+      const newItem = item
+      newItem.cantidad = item.cantidad
+      cart.push(newItem)
+      setCart(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+      setcantidadTotalCart(obtenerCartCantidad(cart))
+
+    }
+  }
+  const isInCart = (id) => {
+    if (cart.find((item) => item.id === id) === undefined) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const obtenerCartCantidad = (arr) => {
+    return arr.reduce((sum, item) => sum + item.cantidad, 0)
+  }
 
   const eliminProducto = (productoParaEliminar) => {
     const carSinProducto = cart.filter(
       (response) => response.id !== productoParaEliminar
     );
-    setCart(carSinProducto);
+    setcantidadTotalCart(obtenerCartCantidad(carSinProducto))
+
+    setCart(carSinProducto)
+    localStorage.setItem('cart', JSON.stringify(carSinProducto))
   };
 
 
-  const obtenerCartCantidad = () => {
-    let cantidadTotalCart = 0;
-    cart.forEach((response) => {
-      cantidadTotalCart += response.cantidad;
-    });
-
-    return cantidadTotalCart;
-  };
-  const buscaProducto = (productoParaBuscar) =>{
-    const productoEncontrado = cart.find(response => response.id === productoParaBuscar)
-    let avisoProductoEncontrado = ''
-    if(productoEncontrado){avisoProductoEncontrado = 'Producto ya está Agregado'}else{avisoProductoEncontrado='Agregar Producto'}
-    return avisoProductoEncontrado
-}
+ 
+ 
 const obtenerTotal = () =>{
   let totalCart = 0
   cart.forEach(response =>{totalCart += response.cantidad * response.precio})
@@ -43,15 +71,17 @@ const obtenerTotal = () =>{
 
 const limpiarCarro = () =>{
   setCart([])
+  setcantidadTotalCart(0)
+  localStorage.setItem('cart', JSON.stringify([]))
 }
 
   return (
     <CartContexto.Provider
-      value={{cart ,agregaProducto, eliminProducto, obtenerCartCantidad, buscaProducto,obtenerTotal,limpiarCarro}}
+      value={{cantidadTotalCart,cart ,agregaProducto, eliminProducto,obtenerCartCantidad,obtenerTotal,limpiarCarro}}
     >
       {children}
     </CartContexto.Provider>
   );
-};
+}
 
-export default CartContexto;
+export default CartContext;

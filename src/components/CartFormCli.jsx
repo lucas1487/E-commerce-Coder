@@ -1,6 +1,6 @@
 import { useState} from 'react';
 import { useForm } from 'react-hook-form'
-import CartContexto from './CartContext'
+import {CartContexto} from './CartContext'
 
 import Cargando from './cardsList/Cargando';
 import {useNotificacion} from './Notification'
@@ -12,11 +12,10 @@ import { useNavigate} from 'react-router-dom'
 
 const CartFormCli = () =>{
     
-    const {cart, obtenerTotal, obtenerCartCantidad, limpiarCarro} = useContext(CartContexto)
+    const {cart, obtenerTotal, cantidadTotalCart, limpiarCarro} = useContext(CartContexto)
     const { register, handleSubmit } = useForm();
     const [dato, setDato] = useState([]);
     const total = obtenerTotal()
-    const canTotal = obtenerCartCantidad()
     const setNotificacion = useNotificacion()
     const [cargando, setCargando] = useState(true)
     
@@ -108,7 +107,7 @@ const CartFormCli = () =>{
                                         
                         <div className="flex flex-col items-center">
                             <p className="text-2xl font-bold text-cyan-700">Resumen de Compra</p>
-                            <p className="">Total Productos:{canTotal}</p>
+                            <p className="">Total Productos:{cantidadTotalCart}</p>
                             <p className="">Total: ${total},00.-</p>
                             <input type="submit" className="m-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value="Finalizar Compra"/>
                         </div>

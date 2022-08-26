@@ -24,8 +24,8 @@ export const CartContexto = createContext();
   const agregaProducto = (item, ) => {
     if (isInCart(item.id)) {
       cart.find((e) => e.id === item.id).cantidad+=item.cantidad
-      
-      localStorage.setItem('cart', JSON.stringify(setCart(cart)))
+      setCart(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
       setcantidadTotalCart(obtenerCartCantidad(cart))
     } else {
       const newItem = item

@@ -20,7 +20,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
   console.log(cantidadAgregada);
 
   return (
-    <div className=" flex justify-center  text-center">
+    <div className=" flex justify-center  text-center font-mono ">
       <Link
         to={`/E-commerce-Coder/`}
         className="pt-2 pl-2 my-2 flex"
@@ -42,7 +42,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
         <p className="pl-2">Volver</p>
       </Link>
 
-      <div className=" flex flex-row max-w-xl bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 border-2 outline-8 m-3 ">
+      <div className=" flex flex-row max-w-xl bg-white  shadow-md dark:bg-gray-800 dark:border-gray-700  border-4 outline-8 m-3 border-blue-700 rounded-3xl">
         <div className="flex flex-col w-3/4">
           <a className="flex justify-center">
             <img className="p-8 rounded-t-lg " src={img} alt="product image" />
@@ -110,14 +110,14 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-white m-5 items-center">
               {" "}
-              ${precio},00
+              ${precio},00.-
             </span>
           </div>
         </div>
 
         <div className="flex flex-col justify-center items-center m-4 w-3/4">
           <li> {descripcion}</li>
-          <p>Cantidad en stock {stock}</p>
+          <p className="mt-2 text-white bg-blue-500 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cantidad en stock {stock}</p>
           {cantidadAgregada === 0 || cantidadAgregada.cantidad === 0 ? (
             <ItemCount agrega={controlAgregaProducto} stock={stock} />
           ) : (

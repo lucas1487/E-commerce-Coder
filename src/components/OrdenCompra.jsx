@@ -17,16 +17,16 @@ const OrdenCompra = () =>{
     console.log(orden)
     if(cargando){
         return(
-            <div className="container"><div className="spin-preloader"></div></div>
+            <div className="mb-5"><div className="spin-preloader"></div></div>
         )
 }
     
     
         return(
-            <>
+            <div className='mb-5 '>
            {orden.length > 0 ? <OrdenDetail orden={orden}/> : <div>No hay ordenes</div>}
     
-            </>
+           </div>
         )
     }
     

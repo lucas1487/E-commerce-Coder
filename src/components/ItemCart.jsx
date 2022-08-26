@@ -9,7 +9,7 @@ function ItemCart({id, marca, precio, cantidad}) {
   return (
     <div>
       <div className="">
-            <div className="m-5 rounded-md p-2 flex flex-row flex-wrap justify-around items-center content-center font-mono  bg-green-200 shadow">
+            <div className="border-4 outline-8 m-3 border-blue-700 rounded-3xl   p-2 flex flex-row flex-wrap justify-around items-center content-center font-mono  bg-green-200 shadow">
                 <div className="text-xl font-bold text-cyan-700  ">{marca}</div>
                 <div className="flex"> <p className="text-xl font-bold text-cyan-700">Precio:  </p> <p className='text-xl font-bold '> ${precio},00.-</p></div>
                 <div className="flex"> <p className="text-xl font-bold text-cyan-700">Cantidad: </p> <p className='text-xl font-bold'> {cantidad}</p></div>

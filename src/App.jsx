@@ -8,6 +8,7 @@ import {NotificacionProvider} from './components/Notification'
 import CarListContainer from './components/CarListContainer'
 import OrdenCompra from './components/OrdenCompra'
 import CartFormCli from './components/CartFormCli'
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/E-commerce-Coder/Cart/Generarcompra/' element={<CartFormCli  />}/>
           <Route path='/E-commerce-Coder/Cart/OrdenCompra/:ordenPage' element={<OrdenCompra />}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartContext>
     </NotificacionProvider>

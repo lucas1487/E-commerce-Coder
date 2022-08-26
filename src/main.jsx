@@ -5,7 +5,7 @@ import './index.css'
 import './firebase/firebase'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <div className="bg-slate-50">
+    <div className="bg-slate-800">
 
     <App />
 </div> 

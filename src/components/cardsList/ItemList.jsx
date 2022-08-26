@@ -9,7 +9,7 @@ function CardList({lista}) {
         {
                
             
-            lista.map((item)=>  <Card key={item.id} id={item.id} marcas={item.marca} precios={item.precio} imagen={item.img} stock={item.stock}/>
+            lista.map((item)=>  <Card key={item.id} id={item.id} marcas={item.marca} precios={item.precio} imagen={item.img} stock={item.stock} />
             )
         }
         

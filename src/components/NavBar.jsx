@@ -2,15 +2,15 @@
 import React from 'react'
 import { useState } from 'react'
 import CartWidget from './CartWidget'
-import icon from '../img/icon.png'
+import icon from '../img/logo.png'
 import { Transition } from "@headlessui/react";
 import {Link} from 'react-router-dom'
 function NavBar(){
   const [isOpen, setIsOpen] = useState(false);
     return(
 
-      <div className='h-min'>
-        <nav className="bg-amber-100">
+      <div className='h-min '>
+        <nav className="bg-slate-800 border-b-4 border-blue-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -23,21 +23,21 @@ function NavBar(){
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <Link to="/E-commerce-Coder/" className=" hover:bg-gray-700 text-blue-900  hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/E-commerce-Coder/" className=" hover:bg-gray-700 text-amber-400 px-3 py-2 rounded-md text-sm font-medium">
                   
                     
                   
                     Inicio
                   
                   </Link>
-                  <Link to="/E-commerce-Coder/Categoria/celular" className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/E-commerce-Coder/Categoria/celular" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
                   
                     
                   
                     Celulares
                   
                   </Link>
-                  <Link to="/E-commerce-Coder/Categoria/auriculares" className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/E-commerce-Coder/Categoria/auriculares" className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
 
                   
                     Auriculares
@@ -45,7 +45,7 @@ function NavBar(){
                   </Link>
                   <a
                     
-                    className="text-blue-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Contacto
                   </a>
@@ -116,30 +116,49 @@ function NavBar(){
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a
-                 
-                  className="hover:bg-gray-700 text-blue-900 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Inicio
-                </a>
+                
+              <Link to="/E-commerce-Coder/">
 
                 <a
                  
-                  className=" text-blue-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="hover:bg-gray-700 text-amber-400 block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Productos
+                  
+                    
+                  
+                  Inicio
+                
                 </a>
+                </Link>
+                <Link to="/E-commerce-Coder/Categoria/celular" >
+
+                <a
+                 
+                  className=" hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  
+                    
+                  
+                  Celulares
+                
+                </a>
+                </Link>
+                <Link to="/E-commerce-Coder/Categoria/auriculares" >
 
                 <a
                   
-                  className=" text-blue-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className=" hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                 Nosotros
+
+                  
+Auriculares
+
                 </a>
+                </Link>
 
                 <a
                  
-                  className=" text-blue-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className=" hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Contacto
                 </a>

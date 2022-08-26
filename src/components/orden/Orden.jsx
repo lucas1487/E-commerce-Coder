@@ -1,6 +1,6 @@
 const Orden = ({id, Comprador, Items,total}) => {
     return(
-        <div className=" m-auto   bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono mt-5">
+        <div className=" m-auto   bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono mt-5 border-4 outline-8  border-blue-700 rounded-3xl">
         <div className="flex flex-col justify-center items-center p-3">
             <div className="flex"><p className="font-bold">Número orden: </p><p>{id}</p></div>
             <div className="flex"> <p className="font-bold">Nombre: </p> <p>{Comprador.Nombrecli}</p></div>
@@ -18,10 +18,10 @@ const Orden = ({id, Comprador, Items,total}) => {
 
 
 
-            <div className="text-2xl font-bold text-cyan-700 mt-3 flex flex-col justify-center items-center border-b-4 border-green-300 text-center ">Detalle Productos</div>
+            <div className=" font-mono text-2xl font-bold text-cyan-700 mt-3 flex flex-col justify-center items-center border-b-4 border-blue-700 text-center ">Detalle Productos</div>
             {Items.map(person =>
                                 
-                <div className="border-b-4 border-green-300 text-center" key={person.id}>
+                <div className="border-b-4 border-blue-700 text-center" key={person.id}>
                     <p className="datosBoletaOrden">{`Producto: ${person.marca}`}</p>
                     <p className="datosBoletaOrden">{`Cantidad: ${person.cantidad}`}</p>
                     <p className="datosBoletaOrden">{`Precio: $${person.precio},00.-`}</p>

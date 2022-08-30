@@ -92,13 +92,12 @@ const CartFormCli = () =>{
     } 
         return (
             <>
-            <div className="detalle-tit ">Detalle de Compra</div>
             {cart.length != '' ? 
             
                 <form onSubmit={handleSubmit(generarOrden)}>
-                    <div className="border-4 outline-8 m-3 border-blue-700 rounded-3xl flex flex-col m-auto items-center justify-around bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono"> 
-                        <div className="flex justify-center flex-col " onChange={handleInputChange}>
-                            <h2 className="itemTitCartDetalle">Registrar datos para la completar la orden</h2>
+                    <div className="border-4 outline-8 mt-3 border-blue-700 rounded-3xl flex flex-col m-auto items-center justify-center bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono"> 
+                        <div className="flex justify-center flex-col m-4 " onChange={handleInputChange}>
+                            <h2 className=" content-center ">Registrar datos para la completar la orden</h2>
                             <input type="text" placeholder="Nombre" className="m-1 border-slate-400 border-solid border-2"  {...register("Nombre", { required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} />
                             <input type="text" placeholder="Apellido" className="m-1 border-slate-400 border-solid border-2" {...register("Apellido", { required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} />
                             <input type="number" placeholder="Número de contacto" className="m-1 border-slate-400 border-solid border-2" {...register("Telefono", { required: true, minLength: 9, maxLength: 11 })} />
@@ -112,7 +111,7 @@ const CartFormCli = () =>{
                             <input type="submit" className="m-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value="Finalizar Compra"/>
                         </div>
                     </div>
-                    <div className="flex flex-col my-4 m-auto items-center justify-around bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono border-4 outline-8 m-3 border-blue-700 rounded-3xl">
+                    <div className="flex flex-col my-4 m-auto items-center justify-around bg-green-200  shadow-2xl  flex-wrap w-1/2 font-mono border-4 outline-8 mt-3 border-blue-700 rounded-3xl">
                         <div className="text-2xl font-bold text-cyan-700">Datos productos</div>   
                          {cart.map(response => <ul className="border-b-4 border-green-300 text-center " key={response.id}><li className='text-xl font-bold'>{response.marca}</li>{response.cantidad===1?<li>{response.cantidad} Unidad</li>:<li>{response.cantidad} Unidades</li>}<li>Total: ${response.precio*response.cantidad},00.-</li></ul>)}
                         

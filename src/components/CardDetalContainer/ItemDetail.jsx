@@ -20,13 +20,13 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
   console.log(cantidadAgregada);
 
   return (
-    <div className=" flex justify-center  text-center font-mono ">
+    <div className=" flex justify-center  text-center font-mono  ">
       <Link
         to={`/E-commerce-Coder/`}
-        className="pt-2 pl-2 my-2 flex"
+        className="pt-2 pl-2 my-2 flex "
       >
         <svg
-          className="w-6 h-6"
+          className="sm:w-6 sm:h-6 text-white w-3 h-3"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -39,13 +39,13 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
             d="M7 16l-4-4m0 0l4-4m-4 4h18"
           />
         </svg>
-        <p className="pl-2">Volver</p>
+        <p className="pl-2 text-white text-xs sm:text-lg ">Volver</p>
       </Link>
 
-      <div className=" flex flex-row max-w-xl bg-white  shadow-md dark:bg-gray-800 dark:border-gray-700  border-4 outline-8 m-3 border-blue-700 rounded-3xl">
-        <div className="flex flex-col w-3/4">
+      <div className=" sm:flex sm:flex-row max-w-xl bg-white  shadow-md dark:bg-gray-800 dark:border-gray-700  border-4 outline-8 m-3 border-blue-700 rounded-3xl flex flex-col items-center ">
+        <div className="flex flex-col w-3/4 ">
           <a className="flex justify-center">
-            <img className="p-8 rounded-t-lg " src={img} alt="product image" />
+            <img className="p-8 rounded-t-lg w-25 md:w-50 lg:w-60" src={img} alt="product image" />
           </a>
           <div className="px-5 pb-5">
             <a >
@@ -117,9 +117,8 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
 
         <div className="flex flex-col justify-center items-center m-4 w-3/4">
           <li> {descripcion}</li>
-          <p className="mt-2 text-white bg-blue-500 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cantidad en stock {stock}</p>
           {cantidadAgregada === 0 || cantidadAgregada.cantidad === 0 ? (
-            <ItemCount agrega={controlAgregaProducto} stock={stock} />
+            <ItemCount agrega={controlAgregaProducto} stock={stock} id={id} />
           ) : (
             <>
               

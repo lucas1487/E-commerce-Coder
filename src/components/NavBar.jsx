@@ -15,11 +15,12 @@ function NavBar(){
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
-                  className="h-12 w-12"
-                  src={icon}
-                  alt="Workflow"
-                />
+                <Link to="/E-commerce-Coder/">
+                <h1 className='text-white text-xl font-bold'>CELUSHOP</h1>
+                
+                
+                </Link>
+               
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -43,13 +44,12 @@ function NavBar(){
                     Auriculares
                   
                   </Link>
-                  <a
+                  <Link to="/E-commerce-Coder/contacto"                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+>
                     
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
+                  
                     Contacto
-                  </a>
-
+                  </Link>
                   
                 </div>
               </div>
@@ -57,7 +57,7 @@ function NavBar(){
             </div>
             <CartWidget/>
 
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex md:hidden ">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -115,7 +115,7 @@ function NavBar(){
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
                 
               <Link to="/E-commerce-Coder/">
 

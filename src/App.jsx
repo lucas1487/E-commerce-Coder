@@ -9,7 +9,7 @@ import CarListContainer from './components/CarListContainer'
 import OrdenCompra from './components/OrdenCompra'
 import CartFormCli from './components/CartFormCli'
 import Footer from "./components/Footer";
-
+import Contacto from "./components/Contacto";
 function App() {
   return (
     <NotificacionProvider>
@@ -25,6 +25,10 @@ function App() {
           <Route
             path="/E-commerce-Coder/detalle/:detalleId"
             element={<CardDetailContainer />}
+          />
+          <Route
+            path="/E-commerce-Coder/contacto"
+            element={<Contacto />}
           />
           <Route path='/E-commerce-Coder/Cart/' element={<CarListContainer />}/>
           <Route path='/E-commerce-Coder/Cart/Generarcompra/' element={<CartFormCli  />}/>

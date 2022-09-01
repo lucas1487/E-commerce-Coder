@@ -4,7 +4,7 @@ import {CartContexto} from "./CartContext";
 import Swal from 'sweetalert2'
 
 function ItemCount({stock, agrega,id}) {
-    const [cantidad, setCantidad]=useState(0);
+    const [cantidad, setCantidad]=useState(1);
     const [controlStock, setControlStock] = useState(0)
     const { cart } = useContext(CartContexto)
 
@@ -18,7 +18,7 @@ function ItemCount({stock, agrega,id}) {
       }
     }, [stock,cart])
 
-    const changeStock = () => {
+    const cambiarStock = () => {
       if (controlStock > 0) {
         setControlStock(stock - cantidad)
         agrega(cantidad)
@@ -32,7 +32,7 @@ function ItemCount({stock, agrega,id}) {
       }
     }
     function decremento(){
-      if (cantidad>0){
+      if (cantidad>1){
          setCantidad(cantidad-1)
       }
     }
@@ -50,7 +50,7 @@ function ItemCount({stock, agrega,id}) {
 
             <p className='ml-5 mr-5 text-lg'> {cantidad}</p>
             <button onClick={incremento} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >+</button>
-            <a onClick={changeStock}  className="m-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-3">Agregar al carrito</a>
+            <a onClick={cambiarStock}  className="m-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-3">Agregar al carrito</a>
 
             </div>
             </div>

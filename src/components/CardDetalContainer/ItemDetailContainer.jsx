@@ -1,5 +1,5 @@
 import React from 'react'
-import CardDetail from './ItemDetail'
+import ItemDetail from './ItemDetail'
 import Cargando from '../cardsList/Cargando'
 import {getDetailCatalogo} from '../../firebase/firestone'
 import { useState,useEffect } from 'react'
@@ -31,7 +31,7 @@ function CardDetailContainer() {
   return (
     
         <div className='h-max flex justify-center justify-items-center'>
-         {loading? <Cargando/>  :<CardDetail {...cardLista}/>}
+         {loading? <Cargando/>  :<ItemDetail {...cardLista}/>}
         </div>
     
   )

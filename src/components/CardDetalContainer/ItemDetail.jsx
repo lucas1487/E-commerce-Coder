@@ -5,8 +5,9 @@ import { useState, useContext,useEffect} from "react";
 import CartWidget from "../CartWidget";
 import {CartContexto} from "../CartContext";
 import { useNotificacion } from '../Notification'
+import Carrucel from "../Carrusel";
 
-function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
+function CardDetail({ id, precio, marca, img,img1,img2, stock, descripcion, categoria }) {
   const {agregaProducto} = useContext(CartContexto)
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
   const setNotificacion = useNotificacion()
@@ -21,9 +22,9 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
 
   return (
     <div className=" flex justify-center  text-center font-mono  ">
-      <Link
+      <Link 
         to={`/E-commerce-Coder/`}
-        className="pt-2 pl-2 my-2 flex "
+        className="pt-2 pl-2 my-2 flex h-3"
       >
         <svg
           className="sm:w-6 sm:h-6 text-white w-3 h-3"
@@ -42,11 +43,9 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
         <p className="pl-2 text-white text-xs sm:text-lg ">Volver</p>
       </Link>
 
-      <div className=" sm:flex sm:flex-row max-w-xl bg-white  shadow-md dark:bg-gray-800 dark:border-gray-700  border-4 outline-8 m-3 border-blue-700 rounded-3xl flex flex-col items-center ">
-        <div className="flex flex-col w-3/4 ">
-          <a className="flex justify-center">
-            <img className="p-8 rounded-t-lg w-25 md:w-50 lg:w-60" src={img} alt="product image" />
-          </a>
+      <div className=" sm:flex sm:flex-row sm:max-w-2xl max-w-sm bg-white  shadow-md dark:bg-gray-800 dark:border-gray-700  border-4 outline-8 m-3 border-blue-700 rounded-3xl flex flex-col items-center ">
+        <div className="flex flex-col w-1/2 ">
+          <Carrucel imagen={img} imagen1={img1}imagen2={img2}stock={stock} id={id}/>
           <div className="px-5 pb-5">
             <a >
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -115,7 +114,7 @@ function CardDetail({ id, precio, marca, img, stock, descripcion, categoria }) {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center m-4 w-3/4">
+        <div className="flex flex-col justify-center items-center m-4 w-1/2">
           <li> {descripcion}</li>
           {cantidadAgregada === 0 || cantidadAgregada.cantidad === 0 ? (
             <ItemCount agrega={controlAgregaProducto} stock={stock} id={id} />

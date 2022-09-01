@@ -117,51 +117,35 @@ function NavBar(){
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
                 
-              <Link to="/E-commerce-Coder/">
-
-                <a
-                 
-                  className="hover:bg-gray-700 text-amber-400 block px-3 py-2 rounded-md text-base font-medium"
-                >
+              <Link to="/E-commerce-Coder/" className=" hover:bg-gray-700 text-amber-400 px-3 py-2 rounded-md text-sm font-medium">
                   
                     
                   
-                  Inicio
-                
-                </a>
-                </Link>
-                <Link to="/E-commerce-Coder/Categoria/celular" >
+                    Inicio
+                  
+                  </Link>
 
-                <a
-                 
-                  className=" hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
+
+                <Link to="/E-commerce-Coder/Categoria/celular" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
                   
                     
                   
-                  Celulares
-                
-                </a>
-                </Link>
-                <Link to="/E-commerce-Coder/Categoria/auriculares" >
-
-                <a
+                    Celulares
                   
-                  className=" hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
+                  </Link>
+                  <Link to="/E-commerce-Coder/Categoria/auriculares" className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
 
                   
-Auriculares
+                    Auriculares
+                  
+                  </Link>
 
-                </a>
-                </Link>
-
-                <a
-                 
-                  className=" hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Contacto
-                </a>
+                <Link to="/E-commerce-Coder/contacto"                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+>
+                    
+                  
+                    Contacto
+                  </Link>
 
                 
               </div>

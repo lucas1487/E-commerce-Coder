@@ -24,7 +24,7 @@ const Orden = ({id, Comprador, Items,total}) => {
                 <div className="border-b-4 border-blue-700 text-center" key={person.id}>
                     <p className="datosBoletaOrden">{`Producto: ${person.marca}`}</p>
                     <p className="datosBoletaOrden">{`Cantidad: ${person.cantidad}`}</p>
-                    <p className="datosBoletaOrden">{`Precio: $${person.precio},00.-`}</p>
+                    <p className="datosBoletaOrden">{`Precio Unitario: $${person.precio},00.-`}</p>
 
                 </div>)}
         </div>

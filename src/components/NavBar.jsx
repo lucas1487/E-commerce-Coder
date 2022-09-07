@@ -1,61 +1,51 @@
-
-import React from 'react'
-import { useState } from 'react'
-import CartWidget from './CartWidget'
-import icon from '../img/logo.png'
+import React from "react";
+import { useState } from "react";
+import CartWidget from "./CartWidget";
 import { Transition } from "@headlessui/react";
-import {Link} from 'react-router-dom'
-function NavBar(){
+import { Link } from "react-router-dom";
+function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-    return(
-
-      <div className='h-min '>
-        <nav className="bg-slate-800 border-b-4 border-blue-700">
+  return (
+    <div className="h-min ">
+      <nav className="bg-slate-800 border-b-4 border-blue-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link to="/E-commerce-Coder/">
-                <h1 className='text-white text-xl font-bold'>CELUSHOP</h1>
-                
-                
+                  <h1 className="text-white text-xl font-bold">CELUSHOP</h1>
                 </Link>
-               
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <Link to="/E-commerce-Coder/" className=" hover:bg-gray-700 text-amber-400 px-3 py-2 rounded-md text-sm font-medium">
-                  
-                    
-                  
+                  <Link
+                    to="/E-commerce-Coder/"
+                    className=" hover:bg-gray-700 text-amber-400 px-3 py-2 rounded-md text-sm font-medium"
+                  >
                     Inicio
-                  
                   </Link>
-                  <Link to="/E-commerce-Coder/Categoria/celular" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                  
-                    
-                  
+                  <Link
+                    to="/E-commerce-Coder/Categoria/celular"
+                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
                     Celulares
-                  
                   </Link>
-                  <Link to="/E-commerce-Coder/Categoria/auriculares" className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-
-                  
+                  <Link
+                    to="/E-commerce-Coder/Categoria/auriculares"
+                    className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
                     Auriculares
-                  
                   </Link>
-                  <Link to="/E-commerce-Coder/contacto"                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
->
-                    
-                  
+                  <Link
+                    to="/E-commerce-Coder/contacto"
+                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
                     Contacto
                   </Link>
-                  
                 </div>
               </div>
-
             </div>
-            <CartWidget/>
+            <CartWidget />
 
             <div className="-mr-2 flex md:hidden ">
               <button
@@ -115,52 +105,42 @@ function NavBar(){
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                
-              <Link to="/E-commerce-Coder/" className=" hover:bg-gray-700 text-amber-400 px-3 py-2 rounded-md text-sm font-medium">
-                  
-                    
-                  
-                    Inicio
-                  
-                  </Link>
+              <div
+                ref={ref}
+                className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center"
+              >
+                <Link
+                  to="/E-commerce-Coder/"
+                  className=" hover:bg-gray-700 text-amber-400 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Inicio
+                </Link>
 
+                <Link
+                  to="/E-commerce-Coder/Categoria/celular"
+                  className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Celulares
+                </Link>
+                <Link
+                  to="/E-commerce-Coder/Categoria/auriculares"
+                  className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Auriculares
+                </Link>
 
-                <Link to="/E-commerce-Coder/Categoria/celular" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                  
-                    
-                  
-                    Celulares
-                  
-                  </Link>
-                  <Link to="/E-commerce-Coder/Categoria/auriculares" className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-
-                  
-                    Auriculares
-                  
-                  </Link>
-
-                <Link to="/E-commerce-Coder/contacto"                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
->
-                    
-                  
-                    Contacto
-                  </Link>
-
-                
+                <Link
+                  to="/E-commerce-Coder/contacto"
+                  className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Contacto
+                </Link>
               </div>
             </div>
           )}
-
         </Transition>
       </nav>
-
-
-      </div>
-  
-
- 
-
-)
+    </div>
+  );
 }
-export default NavBar
+export default NavBar;

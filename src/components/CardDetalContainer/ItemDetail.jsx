@@ -1,31 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount";
-import { useState, useContext,useEffect} from "react";
-import CartWidget from "../CartWidget";
-import {CartContexto} from "../CartContext";
-import { useNotificacion } from '../Notification'
+import { useState, useContext } from "react";
+import { CartContexto } from "../CartContext";
+import { useNotificacion } from "../Notification";
 import Carrucel from "../Carrusel";
 
-function CardDetail({ id, precio, marca, img,img1,img2, stock, descripcion, categoria }) {
-  const {agregaProducto} = useContext(CartContexto)
+function CardDetail({
+  id,
+  precio,
+  marca,
+  img,
+  img1,
+  img2,
+  stock,
+  descripcion,
+  categoria,
+}) {
+  const { agregaProducto } = useContext(CartContexto);
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
-  const setNotificacion = useNotificacion()
+  const setNotificacion = useNotificacion();
 
   const controlAgregaProducto = (cantidad) => {
-    setNotificacion('succes',`Se Agregó ${cantidad} ${marca} al carrito`,1)
+    setNotificacion("succes", `Se Agregó ${cantidad} ${marca} al carrito`, 1);
     agregaProducto({ id, marca, precio, cantidad });
     setCantidadAgregada(cantidad);
-    console.log(cantidad);
   };
-  console.log(cantidadAgregada);
 
   return (
     <div className=" flex justify-center  text-center font-mono  ">
-      <Link 
-        to={`/E-commerce-Coder/`}
-        className="pt-2 pl-2 my-2 flex h-3"
-      >
+      <Link to={`/E-commerce-Coder/`} className="pt-2 pl-2 my-2 flex h-3">
         <svg
           className="sm:w-6 sm:h-6 text-white w-3 h-3"
           fill="none"
@@ -45,9 +49,15 @@ function CardDetail({ id, precio, marca, img,img1,img2, stock, descripcion, cate
 
       <div className=" sm:flex sm:flex-row sm:max-w-2xl max-w-sm bg-white  shadow-md dark:bg-gray-800 dark:border-gray-700  border-4 outline-8 m-3 border-blue-700 rounded-3xl flex flex-col items-center ">
         <div className="flex flex-col w-1/2 ">
-          <Carrucel imagen={img} imagen1={img1}imagen2={img2}stock={stock} id={id}/>
+          <Carrucel
+            imagen={img}
+            imagen1={img1}
+            imagen2={img2}
+            stock={stock}
+            id={id}
+          />
           <div className="px-5 pb-5">
-            <a >
+            <a>
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 {marca}
               </h5>
@@ -120,7 +130,6 @@ function CardDetail({ id, precio, marca, img,img1,img2, stock, descripcion, cate
             <ItemCount agrega={controlAgregaProducto} stock={stock} id={id} />
           ) : (
             <>
-              
               <Link
                 to="/E-commerce-Coder/Cart/"
                 className="mt-2 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2.5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -129,8 +138,6 @@ function CardDetail({ id, precio, marca, img,img1,img2, stock, descripcion, cate
               </Link>
             </>
           )}
-
-          
         </div>
       </div>
     </div>

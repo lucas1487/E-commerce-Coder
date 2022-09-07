@@ -1,11 +1,13 @@
-import Orden from "./Orden"
+import Orden from "./Orden";
 
-const OrdenDetail = ({orden}) => {
-    return(
-        <>
-        {orden.map(orden =><Orden key={orden.id}{...orden}/>)}
-        </>
-    )
-}
+const OrdenDetail = ({ orden }) => {
+  return (
+    <>
+      {orden.map((orden) => (
+        <Orden key={orden.id} {...orden} />
+      ))}
+    </>
+  );
+};
 
-export default OrdenDetail 
+export default OrdenDetail;
